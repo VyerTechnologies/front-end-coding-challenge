@@ -1,0 +1,11 @@
+.parcel-cache/
+coverage/
+dist/
+node_modules/
+
+__generated__/
+
+.env*
+*.log
+
+.DS_Store
