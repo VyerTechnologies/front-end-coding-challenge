@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5"
+  },
+  "include": ["./src/**/*"]
+}
