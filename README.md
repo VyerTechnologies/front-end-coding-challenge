@@ -8,6 +8,8 @@ Goal of this challenge is to assess your programming and product development ski
 
 As a general recommendation, try not to spend more than an hour on actual coding. Off course, you're free to spend more time if you wish to do so.
 
+We don't expect you to finish all of the user stories since there is limited time, instead focus on writing solutions that you are happy with. What we want to see is your coding style and how you approach problems. Likewise don't feel like you need to spend time on the design of the solution, the focus should be on the code.
+
 As you probably know by now, we use React as a framework of choice for our flagship product and thus chose to use it for this challenge as well. The challenge is written in TypeScript. However, you're free to use JavaScript if you're not familiar with TypeScript. Similarly, you can use GitHub REST API if not comfortable with GitHub GraphQL API used in the challenge.
 
 We wish you good luck and hope to talk to you soon!
