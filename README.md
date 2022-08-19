@@ -8,9 +8,11 @@ Goal of this challenge is to assess your programming and product development ski
 
 As a general recommendation, try not to spend more than an hour on actual coding. Off course, you're free to spend more time if you wish to do so.
 
-We don't expect you to finish all of the user stories since there is limited time, instead focus on writing solutions that you are happy with. What we want to see is your coding style and how you approach problems. Likewise don't feel like you need to spend time on the design of the solution, the focus should be on the code.
+We don't expect you to deliver all the user stories given the limited time. Instead, focus on providing a solution you are happy with. What we would like to see is your coding style and your approach to problems. Likewise, emphasis should be on the code and not necessarily on the UX.
 
 As you probably know by now, we use React as a framework of choice for our flagship product and thus chose to use it for this challenge as well. The challenge is written in TypeScript. However, you're free to use JavaScript if you're not familiar with TypeScript. Similarly, you can use GitHub REST API if not comfortable with GitHub GraphQL API used in the challenge.
+
+If you by any chance happen to get stuck at any point, or just have questions, don't hesitate to contact us.
 
 We wish you good luck and hope to talk to you soon!
 
@@ -27,7 +29,11 @@ user
 read:gpg_key
 ```
 
-Once created, add your token to the `.env` file in the project root (next to `project.json`).
+Once created, add your token to the `.env` file in the project root (next to the `project.json` file):
+
+```sh
+echo "GITHUB_PERSONAL_ACCESS_TOKEN=your-github-personal-access-token" >> .env
+```
 
 ### Commands
 
