@@ -71,10 +71,10 @@ You can find all the required features that need to be developed in a form of us
 
 ### User stories
 
-- As an user I want to be able to see number of open issues for each repository item in the repository list on the repository card.
-- As an user I want to be able to see list of all open issues containing the issue title, ordered ascending by date created, on a separate page for each repository item.
-- As an user I want to be able to paginate list of issues for each repository item if more than 25 items are available.
-- As an user I want to be able to search open issues based on their description.
+- [ ] As an user I want to be able to see number of open issues for each repository item in the repository list on the repository card.
+- [ ] As an user I want to be able to see list of all open issues containing the issue title, ordered ascending by date created, on a separate page for each repository item.
+- [ ] As an user I want to be able to paginate list of issues for each repository item if more than 25 items are available.
+- [ ] As an user I want to be able to search open issues based on their description.
 
 ## Resources
 
