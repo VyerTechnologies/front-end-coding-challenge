@@ -1,10 +1,11 @@
-import { Typography } from "@mui/material";
-import { Suspense, useEffect } from "react";
+import { Button, Typography } from "@mui/material";
+import { Suspense, useEffect, useState } from "react";
 import { useQueryLoader } from "react-relay/hooks";
 import { graphql } from "relay-runtime";
 
 import { repositoriesQuery } from "./__generated__/repositoriesQuery.graphql";
-import { RepositoryList } from "./repository-list";
+import { RepositoryList } from "./components";
+import { IssueList } from "../issues/components";
 
 export const RepositoriesQuery = graphql`
   query repositoriesQuery($query: String!, $type: SearchType!) {
@@ -12,8 +13,14 @@ export const RepositoriesQuery = graphql`
       nodes {
         ... on Repository {
           id
-          description
           name
+          owner {
+            login
+          }
+          description
+          issues(states: [OPEN]) {
+            totalCount
+          }
         }
       }
     }
@@ -21,19 +28,39 @@ export const RepositoriesQuery = graphql`
 `;
 
 const Repositories = () => {
-  const [queryReference, loadQuery] =
-    useQueryLoader<repositoriesQuery>(RepositoriesQuery);
+  const [queryReference, loadQuery] = useQueryLoader<repositoriesQuery>(RepositoriesQuery);
+  const [selectedRepo, setSelectedRepo] = useState<{ owner: string; name: string; } | null>(null);
 
   useEffect(() => {
-    loadQuery({ query: "react in:repo org:facebook", type: "REPOSITORY" });
-  }, []);
+    loadQuery({ query: "topic:react sort:stars-desc", type: "REPOSITORY" });
+  }, [loadQuery]);
+
+  const handleSelectRepository = (owner: string, name: string) => {
+    setSelectedRepo({ owner, name });
+  };
+
+  const handleBack = () => {
+    setSelectedRepo(null);
+  };
 
   return (
     <Suspense fallback={<Typography>Loading...</Typography>}>
-      {queryReference ? (
-        <RepositoryList queryReference={queryReference} />
+      {!selectedRepo ? (
+        queryReference ? (
+          <RepositoryList
+            queryReference={queryReference}
+            onSelectRepository={handleSelectRepository}
+          />
+        ) : (
+          <Typography>No results found.</Typography>
+        )
       ) : (
-        <Typography>No results match the search criteria.</Typography>
+        <div>
+          <Button onClick={handleBack} sx={{ mb: 2 }}>
+            Back to Repositories
+          </Button>
+          <IssueList owner={selectedRepo.owner} name={selectedRepo.name} />
+        </div>
       )}
     </Suspense>
   );
